@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ARCHITECT.DEV — Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#9396ff",
+                        "on-tertiary-container": "#005b26",
+                        "primary-fixed-dim": "#8387ff",
+                        "on-tertiary-fixed": "#00461c",
+                        "surface-container": "#1a1a1a",
+                        "secondary-container": "#49339d",
+                        "on-primary": "#0f00a4",
+                        "tertiary-fixed": "#2efd7c",
+                        "surface-container-low": "#131313",
+                        "secondary-fixed": "#d6cbff",
+                        "on-primary-container": "#0a0081",
+                        "surface-bright": "#2c2c2c",
+                        "on-error-container": "#ffb2b9",
+                        "on-background": "#ffffff",
+                        "primary-dim": "#6063ee",
+                        "on-primary-fixed-variant": "#0e009d",
+                        "inverse-on-surface": "#565555",
+                        "surface-container-lowest": "#000000",
+                        "tertiary": "#a7ffb3",
+                        "on-tertiary": "#00652b",
+                        "on-secondary-fixed": "#361c89",
+                        "surface-container-high": "#20201f",
+                        "outline-variant": "#484847",
+                        "on-secondary-container": "#d4c9ff",
+                        "inverse-primary": "#494bd7",
+                        "secondary-dim": "#a28efc",
+                        "background": "#0e0e0e",
+                        "on-surface": "#ffffff",
+                        "on-surface-variant": "#adaaaa",
+                        "surface-variant": "#262626",
+                        "tertiary-fixed-dim": "#00ee70",
+                        "outline": "#767575",
+                        "surface-container-highest": "#262626",
+                        "tertiary-container": "#2efd7c",
+                        "on-secondary-fixed-variant": "#533ea7",
+                        "secondary": "#a28efc",
+                        "surface-dim": "#0e0e0e",
+                        "secondary-fixed-dim": "#c8bbff",
+                        "surface": "#0e0e0e",
+                        "on-tertiary-fixed-variant": "#00662c",
+                        "error-dim": "#d73357",
+                        "on-error": "#490013",
+                        "error-container": "#a70138",
+                        "on-secondary": "#21006d",
+                        "error": "#ff6e84",
+                        "primary": "#a3a6ff",
+                        "on-primary-fixed": "#000000",
+                        "inverse-surface": "#fcf9f8",
+                        "tertiary-dim": "#00ee70",
+                        "surface-tint": "#a3a6ff",
+                        "primary-fixed": "#9396ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Space Grotesk"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0e0e0e;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .light body {
+            background-color: #fcf9f8;
+            color: #0e0e0e;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(24px);
+        }
+        .dark-only { display: inline-block; }
+        .light-only { display: none; }
+        .light .dark-only { display: none; }
+        .light .light-only { display: inline-block; }
+    </style>
+</head>
+<body class="selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0e0e0e]/60 backdrop-blur-xl border-b border-white/5 dark:bg-[#0e0e0e]/60 light:bg-white/60">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<div class="text-xl font-bold tracking-tighter dark:text-white light:text-black font-['Space_Grotesk']">
+                ARCHITECT.DEV
+            </div>
+<div class="hidden md:flex items-center space-x-8 font-['Space_Grotesk'] tracking-tight">
+<a class="text-indigo-500 font-bold border-b-2 border-indigo-500 pb-1" href="#hero">Hero</a>
+<a class="text-gray-400 font-medium hover:text-indigo-400 transition-all duration-300" href="#about">About</a>
+<a class="text-gray-400 font-medium hover:text-indigo-400 transition-all duration-300" href="#skills">Skills</a>
+<a class="text-gray-400 font-medium hover:text-indigo-400 transition-all duration-300" href="#experience">Experience</a>
+<a class="text-gray-400 font-medium hover:text-indigo-400 transition-all duration-300" href="#projects">Projects</a>
+<a class="text-gray-400 font-medium hover:text-indigo-400 transition-all duration-300" href="#contact">Contact</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="p-2 rounded-full hover:bg-surface-variant transition-colors" onclick="document.documentElement.classList.toggle('dark'); document.documentElement.classList.toggle('light')">
+<span class="material-symbols-outlined dark-only text-on-surface">light_mode</span>
+<span class="material-symbols-outlined light-only text-on-surface">dark_mode</span>
+</button>
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-6 py-2 rounded-lg font-bold hover:scale-95 duration-200 ease-in-out">
+                    Hire Me
+                </button>
+</div>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-surface" id="hero">
+<div class="absolute inset-0 z-0 opacity-20">
+<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary blur-[120px] rounded-full"></div>
+<div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary blur-[120px] rounded-full"></div>
+</div>
+<div class="max-w-7xl mx-auto px-8 relative z-10 text-center">
+<div class="inline-flex items-center space-x-2 px-3 py-1 mb-8 rounded-full bg-surface-variant border border-outline-variant/20">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed animate-pulse"></span>
+<span class="text-xs font-label uppercase tracking-widest text-on-surface-variant">Available for new opportunities</span>
+</div>
+<h2 class="text-lg md:text-xl font-label text-primary tracking-[0.3em] uppercase mb-4">Julian Sterling — Lead Software Architect</h2>
+<h1 class="text-5xl md:text-8xl font-headline font-bold tracking-tighter mb-6 leading-none">
+                    ENGINEERING <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">DIGITAL</span> ARCHITECTURE
+                </h1>
+<p class="max-w-2xl mx-auto text-lg md:text-xl text-on-surface-variant mb-12 font-body leading-relaxed">
+                    Crafting high-performance web systems and immersive interfaces with technical precision and creative soul. Specialized in solving complex scale challenges.
+                </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+<a class="group relative px-8 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold rounded-lg overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_rgba(163,166,255,0.3)]" href="#projects">
+<span class="relative z-10 flex items-center gap-2">
+                            View Projects
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</span>
+</a>
+<a class="px-8 py-4 border border-outline-variant/30 text-on-surface font-semibold rounded-lg hover:bg-surface-container transition-colors duration-300" href="#contact">
+                        Contact Me
+                    </a>
+</div>
+</div>
+</section>
+<!-- About Me Section -->
+<section class="py-32 bg-surface-container-low" id="about">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="relative group">
+<div class="aspect-[4/5] rounded-xl overflow-hidden bg-surface-container-high border border-outline-variant/10">
+<img alt="Professional developer portrait" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpacdlfFCplvzAOBGMWMqkw6v_tyiCzUQQaMfcmiCYYUZJSR0zZqdYhTugH4D4RUUvXbBvVG9bOOHPyeiGtB7D0mhRZEEiAityYyAyX3fkj61R9fm8SvR8IAcMmdxcbhFJOI2VxsmEoWEZgxQZqe78aFO583bvu64Z6DfUzps6N95GWUJWEJGAf01378QaF6DJN2zKBVOeaf0By9qnVRzUdO0AqRDwHzcN__VTndiQve8KHOCZiwcT0IzlCov6q3YjWPUufutp6DY"/>
+</div>
+<div class="absolute -bottom-6 -right-6 w-48 h-48 bg-surface-container-highest p-6 rounded-xl border border-outline-variant/20 hidden md:block">
+<div class="text-4xl font-headline font-bold text-primary mb-1">8+</div>
+<div class="text-sm font-label text-on-surface-variant uppercase tracking-wider">Years of Experience</div>
+</div>
+</div>
+<div>
+<span class="font-label text-primary tracking-[0.3em] uppercase text-sm mb-4 block">Our Narrative</span>
+<h2 class="text-4xl md:text-5xl font-headline font-bold mb-8 tracking-tight">Solving at Scale, Designing with Intent.</h2>
+<div class="space-y-6 text-on-surface-variant leading-relaxed text-lg">
+<p>
+                                I am Julian Sterling, a software architect focused on the intersection of technical innovation and human-centric design. My approach is rooted in <strong>rigorous problem-solving</strong>—deconstructing complex business requirements into elegant, high-performance distributed systems.
+                            </p>
+<p>
+                                I specialize in building <strong>scalable full-stack ecosystems</strong> that leverage modern cloud-native architectures. My strength lies in my ability to bridge the gap between low-level system optimization and high-fidelity user experiences, ensuring that every line of code serves a strategic purpose.
+                            </p>
+</div>
+<div class="mt-12 grid grid-cols-2 gap-8 border-t border-outline-variant/10 pt-8">
+<div>
+<div class="dark:text-white light:text-black font-bold mb-1">Innovation Lead</div>
+<div class="text-sm text-on-surface-variant">Driving technical strategy and mentorship.</div>
+</div>
+<div>
+<div class="dark:text-white light:text-black font-bold mb-1">Technical Strength</div>
+<div class="text-sm text-on-surface-variant">Expertise in React, Node, and AWS/Kubernetes.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Skills (Bento Grid) -->
+<section class="py-32 bg-surface" id="skills">
+<div class="max-w-7xl mx-auto px-8">
+<div class="mb-16">
+<h2 class="text-3xl md:text-4xl font-headline font-bold tracking-tight mb-2">Technical Arsenal</h2>
+<p class="text-on-surface-variant">Categorized tools and technologies powering next-gen systems.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Languages -->
+<div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">terminal</span>
+<h3 class="text-xl font-bold">Languages</h3>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center"><span class="text-on-surface-variant text-sm">TypeScript</span> <div class="w-24 h-1 bg-surface-variant rounded-full overflow-hidden"><div class="bg-primary h-full w-[95%]"></div></div></div>
+<div class="flex justify-between items-center"><span class="text-on-surface-variant text-sm">Go / Rust</span> <div class="w-24 h-1 bg-surface-variant rounded-full overflow-hidden"><div class="bg-primary h-full w-[80%]"></div></div></div>
+<div class="flex justify-between items-center"><span class="text-on-surface-variant text-sm">Python</span> <div class="w-24 h-1 bg-surface-variant rounded-full overflow-hidden"><div class="bg-primary h-full w-[85%]"></div></div></div>
+<div class="flex justify-between items-center"><span class="text-on-surface-variant text-sm">SQL / GraphQL</span> <div class="w-24 h-1 bg-surface-variant rounded-full overflow-hidden"><div class="bg-primary h-full w-[90%]"></div></div></div>
+</div>
+</div>
+<!-- Frameworks -->
+<div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-secondary">layers</span>
+<h3 class="text-xl font-bold">Frameworks</h3>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center"><span class="text-on-surface-variant text-sm">React / Next.js</span> <div class="w-24 h-1 bg-surface-variant rounded-full overflow-hidden"><div class="bg-secondary h-full w-[98%]"></div></div></div>
+<div class="flex justify-between items-center"><span class="text-on-surface-variant text-sm">Node.js</span> <div class="w-24 h-1 bg-surface-variant rounded-full overflow-hidden"><div class="bg-secondary h-full w-[92%]"></div></div></div>
+<div class="flex justify-between items-center"><span class="text-on-surface-variant text-sm">Fastify / NestJS</span> <div class="w-24 h-1 bg-surface-variant rounded-full overflow-hidden"><div class="bg-secondary h-full w-[88%]"></div></div></div>
+<div class="flex justify-between items-center"><span class="text-on-surface-variant text-sm">Tailwind CSS</span> <div class="w-24 h-1 bg-surface-variant rounded-full overflow-hidden"><div class="bg-secondary h-full w-[95%]"></div></div></div>
+</div>
+</div>
+<!-- Tools -->
+<div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-tertiary">construction</span>
+<h3 class="text-xl font-bold">Tools &amp; Ops</h3>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center"><span class="text-on-surface-variant text-sm">AWS / Terraform</span> <div class="w-24 h-1 bg-surface-variant rounded-full overflow-hidden"><div class="bg-tertiary h-full w-[90%]"></div></div></div>
+<div class="flex justify-between items-center"><span class="text-on-surface-variant text-sm">Docker / K8s</span> <div class="w-24 h-1 bg-surface-variant rounded-full overflow-hidden"><div class="bg-tertiary h-full w-[85%]"></div></div></div>
+<div class="flex justify-between items-center"><span class="text-on-surface-variant text-sm">PostgreSQL / Redis</span> <div class="w-24 h-1 bg-surface-variant rounded-full overflow-hidden"><div class="bg-tertiary h-full w-[92%]"></div></div></div>
+<div class="flex justify-between items-center"><span class="text-on-surface-variant text-sm">Figma</span> <div class="w-24 h-1 bg-surface-variant rounded-full overflow-hidden"><div class="bg-tertiary h-full w-[80%]"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Experience Section -->
+<section class="py-32 bg-surface-container-low" id="experience">
+<div class="max-w-7xl mx-auto px-8">
+<div class="mb-16">
+<span class="font-label text-primary tracking-[0.3em] uppercase text-sm mb-4 block">Chronicles</span>
+<h2 class="text-4xl md:text-5xl font-headline font-bold tracking-tight">Professional Experience</h2>
+</div>
+<div class="space-y-4">
+<!-- Exp Item 1 -->
+<div class="group bg-surface-container-high p-8 rounded-xl border border-outline-variant/10 hover:border-primary/30 transition-all duration-300">
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
+<div>
+<h3 class="text-2xl font-bold text-white group-hover:text-primary transition-colors">Senior Software Architect</h3>
+<div class="text-on-surface-variant font-medium">MetaScale Systems • 2021 — Present</div>
+</div>
+<div class="mt-4 md:mt-0 px-4 py-1 bg-surface-variant rounded-full text-xs font-label uppercase tracking-widest text-primary">Remote</div>
+</div>
+<ul class="space-y-3 text-on-surface-variant leading-relaxed">
+<li class="flex gap-3"><span class="text-primary">•</span> Led architectural redesign of core data pipeline, reducing operational costs by 40% while increasing throughput.</li>
+<li class="flex gap-3"><span class="text-primary">•</span> Mentored a team of 12 engineers across 3 time zones, implementing strict CI/CD and testing standards.</li>
+<li class="flex gap-3"><span class="text-primary">•</span> Developed proprietary real-time monitoring dashboard used by 150+ internal developers.</li>
+</ul>
+</div>
+<!-- Exp Item 2 -->
+<div class="group bg-surface-container-high p-8 rounded-xl border border-outline-variant/10 hover:border-secondary/30 transition-all duration-300">
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
+<div>
+<h3 class="text-2xl font-bold text-white group-hover:text-secondary transition-colors">Lead Full-Stack Developer</h3>
+<div class="text-on-surface-variant font-medium">Vertex Digital • 2018 — 2021</div>
+</div>
+<div class="mt-4 md:mt-0 px-4 py-1 bg-surface-variant rounded-full text-xs font-label uppercase tracking-widest text-secondary">San Francisco</div>
+</div>
+<ul class="space-y-3 text-on-surface-variant leading-relaxed">
+<li class="flex gap-3"><span class="text-secondary">•</span> Architected and shipped 5+ high-profile SaaS products using React and AWS Lambda serverless.</li>
+<li class="flex gap-3"><span class="text-secondary">•</span> Achieved a 99.9% uptime record over 3 years for all managed client infrastructure.</li>
+<li class="flex gap-3"><span class="text-secondary">•</span> Pioneered the adoption of GraphQL across the organization, improving frontend performance by 30%.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Project Gallery -->
+<section class="py-32 bg-surface" id="projects">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex justify-between items-center mb-16">
+<h2 class="text-3xl md:text-4xl font-headline font-bold tracking-tight">Featured Portfolio</h2>
+<a class="text-primary font-label flex items-center gap-2 hover:underline" href="#">
+                        View All Repository
+                        <span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Project 1 -->
+<div class="group bg-surface-container-low rounded-xl overflow-hidden border border-outline-variant/10 hover:border-primary/50 transition-all">
+<div class="relative aspect-video overflow-hidden">
+<img alt="Project 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6URj1AyGOmIKkka8KVDPgZRM6VuYTEzxtCwsEEp7CawkvMBiyPdvfnneegb-KCipj_qeXnl5KxFfZMdKUO9vtqLwlTGs-HP7x6xID94thdZtfvejIKprir7nOw-9hNReOXCtmlcc4X3aNuc1vTRyHQirrgUl1IC9nnGQ6nasnyBiAuTABYqd0aAUX_DU0JvnAgmC3mqrM15wcH0mr6T0a3zmbiDcqD2WDNJrt11C5_27q0zATS7riRh2H3VXyQc9e_n5FBn7on-U"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-xl font-bold">Vortex Intelligence</h3>
+<div class="flex gap-3">
+<a class="text-on-surface-variant hover:text-primary" href="#"><span class="material-symbols-outlined text-sm">link</span></a>
+<a class="text-on-surface-variant hover:text-primary" href="#"><span class="material-symbols-outlined text-sm">code</span></a>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant mb-6 line-clamp-3">
+<strong>Problem:</strong> Slow analytics processing in massive scale data streams. <br/>
+<strong>Solution:</strong> A Go-based streaming engine with millisecond latency. <br/>
+<strong>Impact:</strong> 50% faster data ingestion for enterprise clients.
+                            </p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-0.5 bg-surface-variant rounded text-[10px] font-label uppercase">Go</span>
+<span class="px-2 py-0.5 bg-surface-variant rounded text-[10px] font-label uppercase">React</span>
+<span class="px-2 py-0.5 bg-surface-variant rounded text-[10px] font-label uppercase">K8s</span>
+</div>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="group bg-surface-container-low rounded-xl overflow-hidden border border-outline-variant/10 hover:border-tertiary/50 transition-all">
+<div class="relative aspect-video overflow-hidden">
+<img alt="Project 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVcsPncUUk0tcyHdSPXEV1KDrM6nCACgXzIqKaYxIcSGWWWO_g51N5Uj6zIdfeVH-rI55rB9I_UW0-8zStgxGpQof24KGoap7oMzhTmyXCopSLnxb1qcsbBLCT9xyWRBUrQNcTMG4thVotv0cS0nl7Zn12YDXqkU0sBDzsrLGjXs9q-DIBpf1SrFEktih56gD7jbQEwomKGzwxZ9-Y7jA5d7eRC1VllGbenA1gNQLQVa20ZHk9kjvP0MnIbBBWTqmD-KjuZzFdKeI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-xl font-bold">Neon Ledger</h3>
+<div class="flex gap-3">
+<a class="text-on-surface-variant hover:text-tertiary" href="#"><span class="material-symbols-outlined text-sm">link</span></a>
+<a class="text-on-surface-variant hover:text-tertiary" href="#"><span class="material-symbols-outlined text-sm">code</span></a>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant mb-6 line-clamp-3">
+<strong>Problem:</strong> Fragmented crypto wallet management for institutional users. <br/>
+<strong>Solution:</strong> Secure, glassmorphic asset dashboard with real-time sync. <br/>
+<strong>Impact:</strong> Managing $200M+ in assets through a unified interface.
+                            </p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-0.5 bg-surface-variant rounded text-[10px] font-label uppercase">Solidity</span>
+<span class="px-2 py-0.5 bg-surface-variant rounded text-[10px] font-label uppercase">Next.js</span>
+<span class="px-2 py-0.5 bg-surface-variant rounded text-[10px] font-label uppercase">Tailwind</span>
+</div>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="group bg-surface-container-low rounded-xl overflow-hidden border border-outline-variant/10 hover:border-secondary/50 transition-all">
+<div class="relative aspect-video overflow-hidden">
+<div class="w-full h-full bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl text-secondary">cloud_sync</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-xl font-bold">CloudStream Core</h3>
+<div class="flex gap-3">
+<a class="text-on-surface-variant hover:text-secondary" href="#"><span class="material-symbols-outlined text-sm">link</span></a>
+<a class="text-on-surface-variant hover:text-secondary" href="#"><span class="material-symbols-outlined text-sm">code</span></a>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant mb-6 line-clamp-3">
+<strong>Problem:</strong> Complex multi-cloud infrastructure orchestration. <br/>
+<strong>Solution:</strong> A declarative Terraform wrapper for automated deployments. <br/>
+<strong>Impact:</strong> Reduced deployment time by 80% for dev teams.
+                            </p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-0.5 bg-surface-variant rounded text-[10px] font-label uppercase">Terraform</span>
+<span class="px-2 py-0.5 bg-surface-variant rounded text-[10px] font-label uppercase">Python</span>
+<span class="px-2 py-0.5 bg-surface-variant rounded text-[10px] font-label uppercase">Vercel</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Humanizing Interests -->
+<section class="py-24 bg-surface-container-low border-y border-outline-variant/5" id="interests">
+<div class="max-w-7xl mx-auto px-8 text-center">
+<h2 class="text-2xl font-headline font-bold mb-8">Beyond the IDE</h2>
+<div class="flex flex-wrap justify-center gap-12">
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-primary mb-3 text-3xl">smart_toy</span>
+<span class="text-sm font-label uppercase tracking-widest text-on-surface-variant">AI Ethics Enthusiast</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-secondary mb-3 text-3xl">public</span>
+<span class="text-sm font-label uppercase tracking-widest text-on-surface-variant">Open Source Contributor</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-tertiary mb-3 text-3xl">photo_camera</span>
+<span class="text-sm font-label uppercase tracking-widest text-on-surface-variant">Analog Photography</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-primary-fixed mb-3 text-3xl">terminal</span>
+<span class="text-sm font-label uppercase tracking-widest text-on-surface-variant">CLI Tool Builder</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-32 bg-surface relative overflow-hidden" id="contact">
+<div class="absolute top-0 right-0 w-1/3 h-full bg-primary/5 blur-[150px]"></div>
+<div class="max-w-7xl mx-auto px-8 relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+<div>
+<h2 class="text-5xl md:text-6xl font-headline font-bold mb-8 tracking-tighter">LET'S START A <span class="text-primary">PROJECT</span>.</h2>
+<p class="text-xl text-on-surface-variant mb-12 leading-relaxed">
+                            Have a complex problem that needs a technical solution? Or just want to talk about the future of web tech? Drop me a message.
+                        </p>
+<div class="space-y-8">
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 bg-surface-container-high rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">mail</span>
+</div>
+<div>
+<div class="text-sm font-label text-on-surface-variant uppercase">Email</div>
+<div class="text-lg font-bold">hello@architect.dev</div>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 bg-surface-container-high rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">share</span>
+</div>
+<div>
+<div class="text-sm font-label text-on-surface-variant uppercase">Social</div>
+<div class="flex gap-4 mt-1">
+<a class="text-on-surface hover:text-primary transition-colors" href="#">GitHub</a>
+<a class="text-on-surface hover:text-primary transition-colors" href="#">LinkedIn</a>
+<a class="text-on-surface hover:text-primary transition-colors" href="#">Twitter</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-high p-8 md:p-12 rounded-2xl border border-outline-variant/20 shadow-2xl">
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-label text-on-surface-variant mb-2">Full Name</label>
+<input class="w-full bg-surface-container-lowest border-none border-b border-outline-variant/30 focus:border-primary focus:ring-0 text-white p-4 transition-all" placeholder="John Doe" required="" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-label text-on-surface-variant mb-2">Email Address</label>
+<input class="w-full bg-surface-container-lowest border-none border-b border-outline-variant/30 focus:border-primary focus:ring-0 text-white p-4 transition-all" placeholder="john@example.com" required="" type="email"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-label text-on-surface-variant mb-2">Subject</label>
+<select class="w-full bg-surface-container-lowest border-none border-b border-outline-variant/30 focus:border-primary focus:ring-0 text-white p-4 transition-all">
+<option>Full-stack Project</option>
+<option>Architecture Consulting</option>
+<option>Technical Strategy</option>
+<option>Other</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-label text-on-surface-variant mb-2">Message</label>
+<textarea class="w-full bg-surface-container-lowest border-none border-b border-outline-variant/30 focus:border-primary focus:ring-0 text-white p-4 transition-all" placeholder="Tell me about your vision..." required="" rows="4"></textarea>
+</div>
+<button class="w-full py-5 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold rounded-lg hover:shadow-[0_0_30px_rgba(163,166,255,0.2)] transition-all" type="submit">
+                                Send Message
+                            </button>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full py-16 border-t border-white/5">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col md:flex-row justify-between items-start mb-12">
+<div class="mb-8 md:mb-0">
+<div class="text-2xl font-black text-white mb-2">ARCHITECT.DEV</div>
+<p class="text-on-surface-variant max-w-xs">Building scalable digital ecosystems with architectural precision and creative excellence.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+<div>
+<div class="font-headline font-bold text-sm uppercase tracking-widest mb-4">Navigate</div>
+<ul class="space-y-2 text-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#hero">Hero</a></li>
+<li><a class="hover:text-primary transition-colors" href="#about">About</a></li>
+<li><a class="hover:text-primary transition-colors" href="#projects">Projects</a></li>
+</ul>
+</div>
+<div>
+<div class="font-headline font-bold text-sm uppercase tracking-widest mb-4">Connect</div>
+<ul class="space-y-2 text-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">GitHub</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">LinkedIn</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Twitter</a></li>
+</ul>
+</div>
+<div>
+<div class="font-headline font-bold text-sm uppercase tracking-widest mb-4">Legal</div>
+<ul class="space-y-2 text-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Privacy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="font-['Inter'] text-sm tracking-wide text-on-surface-variant">© 2024 ARCHITECT.DEV — Built with Precision by Julian Sterling</div>
+<div class="flex gap-4">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<span class="text-[10px] font-label uppercase tracking-[0.2em] text-on-surface-variant">System Status: Optimal</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
